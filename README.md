@@ -12,6 +12,6 @@ node server.js
 ```
 
 ## バージョン情報
-node.js - v8.6.0
-npm     - 5.3.0
+node.js - v8.6.0<br>
+npm     - 5.3.0<br>
 パッケージ類はpackage.json見てください
