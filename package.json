@@ -1,0 +1,23 @@
+{
+  "name": "shilitori-back",
+  "version": "1.0.0",
+  "description": "Shilitori Back End",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KousukeAbe/Shilitori-Back.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/KousukeAbe/Shilitori-Back/issues"
+  },
+  "homepage": "https://github.com/KousukeAbe/Shilitori-Back#readme",
+  "dependencies": {
+    "request": "^2.83.0"
+  }
+}
