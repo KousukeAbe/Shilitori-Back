@@ -48,10 +48,10 @@ socket.on('ここの第一引数に入れる奴です', function(data, fn){
     { check: true, value: data.value } checkは単語が正しいかを表すboolean。valueは正しい単語が送られる
     ```
 
-    - レスポンスjsonファイル(送ってきた文字に問題が場合)
+  - レスポンスjsonファイル(送ってきた文字に問題がある場合)
 
-      ```
-      { check: false} checkは単語が正しいかを表すboolean。問題がある場合は送信者のみに送りたい
-      ```
+    ```
+    { check: false} checkは単語が正しいかを表すboolean。問題がある場合は送信者のみに送りたい
+    ```
 
 - ChangeAttack ... 攻撃権を移すキッカケを与えるイベントですjsonファイルは送られてこないです
