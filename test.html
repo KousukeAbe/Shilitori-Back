@@ -5,9 +5,12 @@
     <title>しりとりテスト</title>
     <script src='test.js'></script>
     <link rel="stylesheet" type="text/css" href="test.css" />
+    <script src="/socket.io/socket.io.js"></script>
 </head>
 <body>
   <h1>リクエストテスト用のhtmlだよ</h1>
   <p id='uho'></p>
+  <input id="uhi" type="text" onkeypress='SendMessage(event.keyCode)'/>
+  <p id='odai'></p>
 </body>
 </html>
