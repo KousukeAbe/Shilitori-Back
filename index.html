@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>しりとりゲーム</title>
+  <script src="http://code.createjs.com/createjs-2015.11.26.combined.js"></script>
+  <script type="text/javascript" src="main.js"></script>
+  <script type="text/javascript" src="canvas.js"></script>
+  <script type="text/javascript" src="Discriminant.js"></script>
+  <script type="text/javascript" src="socket.js"></script>
+  <link rel="stylesheet" type="text/css" href="index.css">
+  <script src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+  <div id="container">
+    <div id="log"></div>
+    <div id="null"></div>
+    <div id="title">
+      <h1>しりとりゲーム</h1>
+    </div>
+    <div id="Canvas">
+      <canvas id="canvas" width="1000" height="700"></canvas>
+    </div>
+    <div id="input">
+      <label for='odai' id="input_id">お題：</label>
+    </div>
+    <div id="answer">
+      <label id="info"></label><br />
+      <textarea class="output" id="output_id" name="output" rows="0" cols="80" onkeypress="output(event.keyCode)"></textarea>
+    </div>
+  </div>
+</body>
+</html>
