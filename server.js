@@ -14,7 +14,7 @@ function CheckEndPoint(request, response){
 
   switch(endpoint.pathname){
     case '/':
-      fs.readFile('./test.html','utf-8',
+      fs.readFile('./index.html','utf-8',
       function(err,data){
         response.writeHead(200,{'Content-Type':'text/html'});
         response.write(data);
@@ -22,8 +22,8 @@ function CheckEndPoint(request, response){
       });
       break;
 
-    case '/test.css':
-      fs.readFile('./test.css', 'utf-8',
+    case '/index.css':
+      fs.readFile('./css/index.css', 'utf-8',
       function (err, data) {
         response.writeHead(200, {'Content-Type': 'text/css'});
         response.write(data);
@@ -31,14 +31,53 @@ function CheckEndPoint(request, response){
       });
       break;
 
-    case '/test.js':
-      fs.readFile('./test.js', 'utf-8',
+    case '/main.js':
+      fs.readFile('./js/main.js', 'utf-8',
       function (err, data) {
         response.writeHead(200, {'Content-Type': 'text/javascript'});
         response.write(data);
         response.end();
       });
       break;
+
+    case '/canvas.js':
+      fs.readFile('./js/canvas.js', 'utf-8',
+      function (err, data) {
+        response.writeHead(200, {'Content-Type': 'text/javascript'});
+        response.write(data);
+        response.end();
+      });
+      break;
+
+    case '/Discriminant.js':
+      fs.readFile('./js/Discriminant.js', 'utf-8',
+      function (err, data) {
+        response.writeHead(200, {'Content-Type': 'text/javascript'});
+        response.write(data);
+        response.end();
+      });
+      break;
+
+    case '/socket.js':
+      fs.readFile('./js/socket.js', 'utf-8',
+      function (err, data) {
+        response.writeHead(200, {'Content-Type': 'text/javascript'});
+        response.write(data);
+        response.end();
+      });
+      break;
+
+    case '/favicon.ico':
+      fs.readFile('./favicon.ico', '',
+        function(err,data){
+          if(err){
+            console.log(err);
+          }
+          response.writeHead(200, {'Content-Type': 'image/x-icon'});
+          response.write(data);
+          response.end();
+        });
+        break;
 
     default:
       response.writeHead(400, {'Content-Type':'text/html', 'charset':'UTF-8'});

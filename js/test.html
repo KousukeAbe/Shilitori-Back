@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <body>
+    <p>
+      <script>
+      var x= prompt("文字を入力して下さい。","");
+      if(x.match(/^[\u3040-\u3094\u30FC]+$/)){
+          alert("これはひらがなです。");
+          if(x[x.length-1]=="ー"){
+            console.log(x[x.length-2]);
+            alert("ーの一つ前を表示します");
+          }
+        }
+        else{
+          alert("このコードはポンコツです・");
+        }
+      </script>
+</p>
+</body>
+</html>

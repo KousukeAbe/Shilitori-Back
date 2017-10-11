@@ -12,7 +12,7 @@ window.onload = function(){
     var answer = data.message;
     console.log(answer);
   });
-
+// 受け取り通信
   socket.on("SendOdai", function(data){
     NextWord(data);
   });
@@ -41,7 +41,7 @@ function SendMessage(event){
       info.innerHTML = "お題の最後の文字に続かないといけません";
       return;
     }
-
+// ソケット送る奴
     socket.emit("attack", {value: word});
     attackright = false;
   }
