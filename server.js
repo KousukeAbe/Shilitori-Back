@@ -67,6 +67,24 @@ function CheckEndPoint(request, response){
       });
       break;
 
+    case '/sound_control.js':
+      fs.readFile('./js/sound_control.js', 'utf-8',
+      function (err, data) {
+        response.writeHead(200, {'Content-Type': 'text/javascript'});
+        response.write(data);
+        response.end();
+      });
+      break;
+
+    case '/atsumori.wav':
+      fs.readFile('./atsumori.wav',
+      function (err, data) {
+        response.writeHead(200, {'Content-Type': 'audio/wav'});
+        response.write(data);
+        response.end();
+      });
+      break;
+
     case '/favicon.ico':
       fs.readFile('./favicon.ico', '',
         function(err,data){
@@ -105,18 +123,15 @@ io.sockets.on('connection', function(socket){
   });
 
   socket.on("result", function(){
-    console.log("fdfds");
     socket.broadcast.emit('winner',{});
   });
 });
 
 
-//https://ja.wikipedia.org/w/api.php?format=xml&action=query&list=search&srsearch= コレが優秀か?
 function asyncWordCheck(word){
   return new Promise(function(resolve, reject){
     var option = {
       url:`https://jlp.yahooapis.jp/KeyphraseService/V1/extract?appid=dj0zaiZpPU85N2RhcDV1MjlEayZzPWNvbnN1bWVyc2VjcmV0Jng9Yjg-&sentence=${encodeURI(word)}&output=json`,
-    //  url : `https://ja.wikipedia.org/w/api.php?format=json&action=query&list=search&srsearch=${encodeURI(word)}`,
       method : 'GET',
     };
 
