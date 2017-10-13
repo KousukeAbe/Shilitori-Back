@@ -23,9 +23,20 @@ body{
   background: #88f;
 }
 
-#title{
+#player1{
   grid-row: 1/2;
-  grid-column: 2/4;
+  grid-column: 2/3;
+  font-size: 30px;
+  border: 1px solid;
+  text-align: center;
+}
+
+#player2{
+  grid-row: 1/2;
+  grid-column: 3/4;
+  font-size: 30px;
+  border: 1px solid;
+  text-align: center;
 }
 
 #Canvas{
@@ -47,22 +58,23 @@ body{
   background: blue;
 }
 
+meter{
+  width: 20vw;
+  height: 7vh;
+}
+
 label[for=odai]{
   font-size: 50px;
 }
 
-textarea{
+input{
   font-family: sans-serif;
   margin-top: 10px;
   margin-left: 10px;
   width: 80%;
   height: 50px;
-}
-
-textarea.output{
   font-size: 30px;
 }
-
 #info{
   color: white;
 }

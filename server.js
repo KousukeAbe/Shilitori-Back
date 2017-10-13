@@ -94,12 +94,19 @@ io.sockets.on('connection', function(socket){
 
   socket.on("attack", function(data) {
     asyncWordCheck(data.value).then(
-    function() {
+    function(damage) {
       io.sockets.emit("SendOdai", {check: true, value: data.value});
       socket.broadcast.emit('ChangeAttack',{});
+      socket.broadcast.emit('SendDamage',{damage: damage, user: "hp1"});
+      io.sockets.to(socket.id).emit('SendDamage', {damage: damage, user:"hp2"});
     }, function(){
-      io.sockets.emit("SendOdai", {check: false});
+      io.sockets.to(socket.id).emit("SendOdai", {check: false});
     });
+  });
+
+  socket.on("result", function(){
+    console.log("fdfds");
+    socket.broadcast.emit('winner',{});
   });
 });
 
@@ -108,15 +115,16 @@ io.sockets.on('connection', function(socket){
 function asyncWordCheck(word){
   return new Promise(function(resolve, reject){
     var option = {
-      url : `https://ja.wikipedia.org/w/api.php?format=json&action=query&list=search&srsearch=${encodeURI(word)}`,
+      url:`https://jlp.yahooapis.jp/KeyphraseService/V1/extract?appid=dj0zaiZpPU85N2RhcDV1MjlEayZzPWNvbnN1bWVyc2VjcmV0Jng9Yjg-&sentence=${encodeURI(word)}&output=json`,
+    //  url : `https://ja.wikipedia.org/w/api.php?format=json&action=query&list=search&srsearch=${encodeURI(word)}`,
       method : 'GET',
     };
 
     request(option, function (error, response, body) {
-      var pp = JSON.parse(body);
-      var searchtotal = pp.query.searchinfo.totalhits;
-      if(searchtotal > 0){
-        resolve();
+      var total = JSON.parse(body);
+      if(total[word]){
+        let damage = Math.floor(word.length * Math.random() * 500) + 500
+        resolve(damage);
       }else{
         reject();
       }
